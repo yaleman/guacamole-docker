@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  guacamole:
+    image: guacamole/guacamole
+    ports: 
+      - "8080:8080"
+    environment:
+      GUACD_HOSTNAME: guacd
+      POSTGRES_HOSTNAME: postgres
+      POSTGRES_DATABASE: guacamole
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+
+  guacd:
+    image: guacamole/guacd
+  
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: password
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    #restart: always
+    ports:
+      - 8081:8080
+  
+volumes:
+ pgdata:
