@@ -2,6 +2,7 @@ version: '3'
 
 services:
   guacamole:
+    restart: always
     image: guacamole/guacamole
     ports: 
       - "8080:8080"
@@ -13,9 +14,11 @@ services:
       POSTGRES_PASSWORD: password
 
   guacd:
+    restart: always
     image: guacamole/guacd
   
   postgres:
+    restart: always
     image: postgres
     environment:
       POSTGRES_PASSWORD: password
@@ -24,7 +27,6 @@ services:
 
   adminer:
     image: adminer
-    #restart: always
     ports:
       - 8081:8080
   
