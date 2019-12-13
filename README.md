@@ -11,7 +11,7 @@ This compose stack makes these containers:
 
 1. Run the stack with `docker-compose up -d`
 2. Go to http://localhost:8081
-3. Log in to the `postgres` host with `postgres/password`
+3. Log in to the `guacamole-docker_postgres_1` host with `postgres/password`
 3. Create a database called `guacamole`
 4. Import `initdb.sql` into the `guacamole` database
 5. Log in to `http://localhost:8080` with `guacadmin:guacadmin`

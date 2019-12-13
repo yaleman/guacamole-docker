@@ -8,10 +8,13 @@ services:
       - "8080:8080"
     environment:
       GUACD_HOSTNAME: guacd
+      GUACAMOLE_HOME: /opt/guachome
       POSTGRES_HOSTNAME: postgres
       POSTGRES_DATABASE: guacamole
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
+    volumes:
+      - ./extensions/:/opt/guachome/extensions/
 
   guacd:
     restart: always
